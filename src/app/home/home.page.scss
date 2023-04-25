@@ -27,6 +27,43 @@
 }
 
 .list-formulario{
+  justify-items: center;
   margin-bottom: 20px;
+  margin: 10px;
   border: 1px solid #fff;
+  width: 100%;
+}
+
+
+.dato{
+  width: 40%;
+  margin: 1%;
+  border-radius: 20px;
+
+}
+.imagen{
+  margin-left: 19%;  
+  padding-top: 9%;
+  width: 30%;
+}
+.contenedor{
+
+  background: #220f27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #492c64, #352043, #220f27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2d2c64, #432041, #220f27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+border-radius: 21px;
+  margin: 1%;
+  display: flex;
+  background-color: rgb(176, 127, 255);
+}
+.NMP{
+  font-family: cursive;
+  font-size: 20px;
+}
+.formulario{
+  border-radius: 20px; 
+}
+.mostrar{
+  border-radius: 20px;
 }

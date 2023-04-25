@@ -13,30 +13,69 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-list class="list-formulario">
-  <ion-item>
-    <ion-input type="text" placeholder="Cedula" [(ngModel)]="newPersona.cedula"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="text" placeholder="Nombre" [(ngModel)]="newPersona.nombre"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="text" placeholder="Apellido" [(ngModel)]="newPersona.apellido"></ion-input>
-  </ion-item>
+  <div class="contenedor">
+    <div class="dato">
+      <ion-list class="formulario">
+        <ion-item>
+          <ion-icon name="create-outline" slot="start"></ion-icon>
+          <ion-input label="Nombre" label-placement="floating" fill="solid" type="text" placeholder="Enter Text"
+            [(ngModel)]="newPlato.NombrePlato"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="pencil-outline" slot="start"></ion-icon>
+          <ion-input label="Precio" label-placement="floating" fill="solid" type="Number" placeholder="Enter Text"
+            [(ngModel)]="newPlato.precio"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pencil-outline" slot="start"></ion-icon>
+          <ion-input name="Calificacion" label="Calificacion" label-placement="floating" fill="solid" type="Number"
+            [(ngModel)]="newPlato.calificacion"></ion-input>
+        </ion-item>
+
+
+
+      </ion-list>
+    </div>
+
+    <div class="imagen">
+      <img *ngIf="url1" [src]="url1" alt="vista previa">
+      <input type="file" (change)="imag($event)" [(ngModel)]="newPlato.foto">
+    </div>
+  </div>
+
+
+  <ion-list  class="mostrar">
+    <ion-item *ngFor="let p of Platos" class="mostrar">
+
+      <ion-card>
+        <img alt="{{p.foto}}" src="{{p.foto}}" />
+        <ion-card-header>
+          <ion-item>
+            <ion-icon name="star"></ion-icon>
+            <ion-card-title>{{p.calificacion}}/5 </ion-card-title>
+          </ion-item>
+          <ion-item>
+            <ion-card-subtitle class="NMP">{{p.NombrePlato}}</ion-card-subtitle>
+          </ion-item>
+        </ion-card-header>
+
+        <ion-card-content>
+          {{p.precio}} $
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-button (click)="delete(p)" color="danger">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+      </ion-button>
+
+
+    </ion-item>
   </ion-list>
-<ion-list>
-  <ion-item *ngFor="let p of Personas" >
-    <ion-label>{{p.cedula}}</ion-label>
-    <ion-label>{{p.nombre}}</ion-label>
-    <ion-label>{{p.apellido}}</ion-label>
-    <ion-button (click)="delete(p)" color="danger" >
-      <ion-icon slot="icon-only" name="close-circle-outline" ></ion-icon>
-    </ion-button>
-  </ion-item>
-</ion-list>
-<ion-fab vertical="bottom" horizontal="end" >
-<ion-fab-button (click)="save()" size="small" color="success">
-  <ion-icon name="add-circle-outline"></ion-icon>
-</ion-fab-button>
-</ion-fab>
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="save()" size="small" color="success">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
